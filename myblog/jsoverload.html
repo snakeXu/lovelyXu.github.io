@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>喵小喵的窝</title>
+    <meta name="description" content="喵小喵的课后总结">
+    <meta name="generator" content="VuePress 1.4.0">
+    <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.9eed9cb0.css" as="style"><link rel="preload" href="/assets/js/app.dedaf7f3.js" as="script"><link rel="preload" href="/assets/js/3.04891d24.js" as="script"><link rel="preload" href="/assets/js/2.0cae37ed.js" as="script"><link rel="preload" href="/assets/js/9.4e3ff74b.js" as="script"><link rel="prefetch" href="/assets/js/10.9536afc1.js"><link rel="prefetch" href="/assets/js/11.25a3cf45.js"><link rel="prefetch" href="/assets/js/12.7dc8075b.js"><link rel="prefetch" href="/assets/js/4.5c417c8c.js"><link rel="prefetch" href="/assets/js/5.13777f0a.js"><link rel="prefetch" href="/assets/js/6.61414f97.js"><link rel="prefetch" href="/assets/js/7.aef59a36.js"><link rel="prefetch" href="/assets/js/8.b3807010.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.9eed9cb0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">喵小喵的窝</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/myblog/" class="nav-link router-link-active">
+  我的前端笔记
+</a></div><div class="nav-item"><a href="/mydiary/" class="nav-link">
+  我的生活日记
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/myblog/" class="nav-link router-link-active">
+  我的前端笔记
+</a></div><div class="nav-item"><a href="/mydiary/" class="nav-link">
+  我的生活日记
+</a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="js实现重载和重写"><a href="#js实现重载和重写" class="header-anchor">#</a> js实现重载和重写</h2> <h4 id="重载"><a href="#重载" class="header-anchor">#</a> 重载</h4> <p>函数名相同，函数的参数列表不同(包括参数个数和参数类型)，根据参数的不同去执行不同的操作。在JavaScript中，同一个作用域，出现两个名字一样的函数，后面的会覆盖前面的，所以 JavaScript 没有真正意义的重载。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 可以跟据arguments个数实现重载</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">switch</span><span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
+        <span class="token function">addFn</span><span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+        <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+        <span class="token function">deleteFn</span><span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">addFn</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">fn函数参数个数为</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">个</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">deleteFn</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">fn函数参数个数为</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">个</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// fn函数参数个数为1个</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment">// fn函数参数个数为0个</span>
+</code></pre></div><h4 id="重写"><a href="#重写" class="header-anchor">#</a> 重写</h4> <p>“实例中的指针仅指向原型，而不是指向构造函数”。
+“重写原型对象切断了现有原型与任何之前已经存在的对象实例之间的关系；它们引用的仍然是最初的原型”。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> <span class="token function-variable function">parent</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span>age</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+parent<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">showProper</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">&quot;:&quot;</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> <span class="token function-variable function">child</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span>age</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">parent</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// inheritance</span>
+child<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>parent<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// child.prototype = new parent();</span>
+child<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> child<span class="token punctuation">;</span>
+<span class="token comment">// rewrite function</span>
+child<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">showProper</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am '</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">&quot;:&quot;</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">child</span><span class="token punctuation">(</span><span class="token string">'wozien'</span><span class="token punctuation">,</span><span class="token string">'22'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span><span class="token function">showProper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>上面这段代码通过使用寄生组合继承，实现子类私有继承父类私有，子类公有继承父类公有，达到重写父类的showProper</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.dedaf7f3.js" defer></script><script src="/assets/js/3.04891d24.js" defer></script><script src="/assets/js/2.0cae37ed.js" defer></script><script src="/assets/js/9.4e3ff74b.js" defer></script>
+  </body>
+</html>
